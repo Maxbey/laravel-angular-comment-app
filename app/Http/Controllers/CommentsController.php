@@ -12,6 +12,11 @@ use App\Comment;
 
 class CommentsController extends Controller
 {
+    
+    public function __construct(){
+        $this->middleware('ajax');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +24,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        $comments = Comment::all();
+        $comments = Comment::latest()->get();
 
         return $comments;
     }

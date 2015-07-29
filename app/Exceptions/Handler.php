@@ -39,6 +39,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if($e instanceof HttpException)
+        {
+            return response()->make(view('index'));
+        }
         return parent::render($request, $e);
     }
 }

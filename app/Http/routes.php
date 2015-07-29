@@ -8,5 +8,5 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::resource('comments', 'CommentsController',
 
-        ['only' => ['index', 'store', 'destroy']]);
+        ['only' => ['index', 'store', 'show', 'destroy']]);
 });
