@@ -22,6 +22,14 @@ App.config([
             templateUrl: 'views/index.html',
             controller: 'CommentListCtrl'
         })
+        .when('/comments/:id', {
+            templateUrl: 'views/comment.html',
+            controller: 'CommentShowCtrl'
+        })
+        .when('/comments/:id/edit', {
+            templateUrl: 'views/comment_edit.html',
+            controller: 'CommentEditCtrl'
+        })
         .otherwise({
             templateUrl: 'views/wrong.html'
         });
