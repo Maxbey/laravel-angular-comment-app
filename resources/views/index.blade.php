@@ -11,6 +11,7 @@
     <script src="vendor/angular-animate/angular-animate.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/all.js"></script>
+    <link rel="stylesheet" href="css/all.css">
     
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
 </head>
@@ -23,7 +24,7 @@
         <h4>Commenting System</h4>
     </div>
 
-    <ng-view></ng-view>
+    <div ng-view class="view-container"></div>
     
 </div>
 </body> 

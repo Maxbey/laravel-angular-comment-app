@@ -2,7 +2,8 @@ var App = angular.module('commentApp', [
     'ngRoute',
     'commentControllers',
     'commentFilters',
-    'commentServices'
+    'commentServices',
+    'commentAnimations'
 ], function ($httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 });
@@ -10,6 +11,7 @@ var App = angular.module('commentApp', [
 var AppControllers = angular.module('commentControllers', []),
     AppFilters = angular.module('commentFilters', []),
     AppServices = angular.module('commentServices', ['ngResource']);
+    AppAnimations = angular.module('commentAnimations', ['ngAnimate']);
 
 App.config([
     '$routeProvider', '$locationProvider', function($routeProvide, $locationProvider){

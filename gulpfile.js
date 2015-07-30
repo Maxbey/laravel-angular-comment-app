@@ -7,5 +7,8 @@ elixir(function(mix) {
         'services/*.js',
         'filters/*.js',
         'controllers/*.js'
+    ])
+        .styles([
+        '*.css'
     ]);
 });

@@ -15,7 +15,7 @@
     
     <p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
     
-    <div class="comment" ng-hide="loading" ng-repeat="comment in comments">
+    <div class="comment item" ng-hide="loading" ng-repeat="comment in comments">
         <h3>Comment <a href="/comments/{{comment.id}}">#{{ comment.id }}</a> <small>by {{ comment.author }}</small></h3>
         <p>{{ comment.text }}</p>
     
