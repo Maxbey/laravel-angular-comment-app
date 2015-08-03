@@ -1,22 +1,21 @@
-AppControllers.controller('CommentListCtrl', function($scope, $http, $location, Comment){
-    $scope.loading = true;
+AppControllers.controller('CommentListCtrl', function($scope, $http, $location, CommentModel)
+{
+    /*Hide content*/
+    
+    /*Querying comments data*/
+    var refreshList = function(){
+        $scope.contentReady = false;
+        $scope.comments = CommentModel.query({}, function(){ $scope.contentReady = true; });
+    };
+    
+    /*Object for new comment*/
     $scope.commentData = {};
     
-    var refreshList = function(){
-        $scope.comments = Comment.query();
-        $scope.loading = false;
-    };
-    
+    /* Form options */
+    $scope.submitButton = 'Add Comment';
     $scope.submitComment = function()
     {
-        $scope.loading = true;
-        Comment.save({},$scope.commentData, refreshList);
-    };
-    
-    $scope.deleteComment = function(id)
-    {
-        $scope.loading = true;
-        Comment.delete({id:id}, refreshList);
+        CommentModel.save({},$scope.commentData, refreshList);
     };
     
     refreshList();

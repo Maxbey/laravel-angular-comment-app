@@ -1,9 +1,11 @@
 var App = angular.module('commentApp', [
     'ngRoute',
+    'angular-loading-bar',
     'commentControllers',
     'commentFilters',
     'commentServices',
-    'commentAnimations'
+    'commentAnimations',
+    'commentDirectives'
 ], function ($httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 });
@@ -12,6 +14,8 @@ var AppControllers = angular.module('commentControllers', []),
     AppFilters = angular.module('commentFilters', []),
     AppServices = angular.module('commentServices', ['ngResource']);
     AppAnimations = angular.module('commentAnimations', ['ngAnimate']);
+
+var AppDirectives = angular.module('commentDirectives', []);
 
 App.config([
     '$routeProvider', '$locationProvider', function($routeProvide, $locationProvider){
@@ -25,7 +29,7 @@ App.config([
             controller: 'CommentListCtrl'
         })
         .when('/comments/:id', {
-            templateUrl: 'views/comment.html',
+            templateUrl: 'views/comment_show.html',
             controller: 'CommentShowCtrl'
         })
         .when('/comments/:id/edit', {

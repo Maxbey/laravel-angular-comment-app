@@ -1,9 +1,10 @@
-AppControllers.controller('CommentShowCtrl', function($scope, $http, $location, $routeParams, Comment){
-    $scope.loading = true;
+AppControllers.controller('CommentShowCtrl', function($scope, $http, $location, $routeParams, CommentModel)
+{
+    /*Querying comment data*/
+    var loadComment = function(){
+        $scope.contentReady = false;
+        $scope.comment = CommentModel.get({id:$routeParams.id}, function(){ $scope.contentReady = true; });
+    };
     
-    $scope.comment = Comment.get({id:$routeParams.id}, function(){
-        $scope.loading = false;
-    }, function(){
-        console.log('Loading failed');
-    });
+    loadComment();
 });

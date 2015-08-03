@@ -6,7 +6,8 @@ elixir(function(mix) {
         'app.js',
         'services/*.js',
         'filters/*.js',
-        'controllers/*.js'
+        'controllers/*.js',
+        'directives/*.js'
     ])
         .styles([
         '*.css'

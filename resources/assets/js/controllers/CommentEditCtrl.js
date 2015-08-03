@@ -1,13 +1,18 @@
-AppControllers.controller('CommentEditCtrl', function($scope, $http, $location, $routeParams, Comment){
-    $scope.loading = true;
-    var loadComment = function (){
-            $scope.comment = Comment.get({id:$routeParams.id}, function(){
-            $scope.loading = false;
+AppControllers.controller('CommentEditCtrl', function($scope, $http, $location, $routeParams, CommentModel)
+{
+    /*Querying comment data*/
+    var loadComment = function(){
+        $scope.contentReady = false;
+        CommentModel.get({id:$routeParams.id}, function(data){ 
+            $scope.comment = $scope.commentData = data; 
+            $scope.contentReady = true; 
         });
     };
-
+    
+    /* Form options */
+    $scope.submitButton = 'Update Comment';
     $scope.updateComment = function (){
-       Comment.update({id: $scope.comment.id}, $scope.comment, loadComment);
+        CommentModel.update({id: $scope.comment.id}, $scope.comment, loadComment);
     };
     
     loadComment();

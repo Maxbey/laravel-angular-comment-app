@@ -52,7 +52,7 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        $comment = Comment::find($id);
+        $comment = Comment::findOrFail($id);
 
         return $comment;
 
@@ -67,7 +67,7 @@ class CommentsController extends Controller
      */
     public function update(CommentRequest $request, $id)
     {
-        $comment = Comment::find($id);
+        $comment = Comment::findOrFail($id);
         $comment->update($request->all());
 
         return response()->json([

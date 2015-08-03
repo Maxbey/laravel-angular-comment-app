@@ -1,23 +1,8 @@
-<form ng-submit="submitComment()">
-        <div class="form-group">
-            <input type="text" class="form-control input-sm" name="author" ng-model="commentData.author" placeholder="Name">
-        </div>
-        
-        <div class="form-group">
-            <textarea class="form-control" name="comment" ng-model="commentData.text" placeholder="Say what you have to say"></textarea>
-        </div>
-    
-        
-        <div class="form-group text-right">   
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-    
-    <p class="text-center" ng-show="loading"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
-    
-    <div class="comment item" ng-hide="loading" ng-repeat="comment in comments">
-        <h3>Comment <a href="/comments/{{comment.id}}">#{{ comment.id }}</a> <small>by {{ comment.author }}</small></h3>
-        <p>{{ comment.text }}</p>
-    
-        <p><a href="#" ng-click="deleteComment(comment.id)" class="text-muted">Delete</a></p>
-    </div>
+<form comment-form ng-submit="submitComment()"></form>
+<p class="text-center" ng-show="!contentReady"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
+<div ng-show="contentReady">
+    <h2 ng-if="!comments.length">No comments yet.</h2>
+    <div class="item" ng-if="comments.length" ng-repeat="comment in comments">
+        <comment-component></comment-component>
+    </div>  
+</div>
