@@ -1,11 +1,14 @@
-AppControllers.controller('CommentListCtrl', function($scope, $http, $location, CommentModel)
+AppControllers.controller('CommentListCtrl', function($scope, $http, $location, CommentService)
 {
-    /*Hide content*/
+    /*Q-4
+        Whether to validate the json server response for the void in the controller,
+        or check directly in the template using ng-show or ng-if directives ?
+    */
     
     /*Querying comments data*/
     var refreshList = function(){
         $scope.contentReady = false;
-        $scope.comments = CommentModel.query({}, function(){ $scope.contentReady = true; });
+        $scope.comments = CommentService.query({}, function(){ $scope.contentReady = true; });
     };
     
     /*Object for new comment*/
@@ -15,7 +18,7 @@ AppControllers.controller('CommentListCtrl', function($scope, $http, $location, 
     $scope.submitButton = 'Add Comment';
     $scope.submitComment = function()
     {
-        CommentModel.save({},$scope.commentData, refreshList);
+        CommentService.save({},$scope.commentData, refreshList);
     };
     
     refreshList();

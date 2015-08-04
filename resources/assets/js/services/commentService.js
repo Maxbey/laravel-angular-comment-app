@@ -1,4 +1,4 @@
-AppServices.factory('CommentModel', function ($resource){
+AppServices.factory('CommentService', function ($resource){
     var all = function(){
         return this.query();
     };
