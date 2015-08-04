@@ -1,4 +1,5 @@
 <p class="text-center" ng-show="!contentReady"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
 <div ng-show="contentReady">
-    <comment-component></comment-component>
+    <h2 ng-if="notExists">That comment doesn`t exists</h2>
+    <comment-component ng-if="!notExists"></comment-component>
 </div>

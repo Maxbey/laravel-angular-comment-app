@@ -1,9 +1,12 @@
-<form ng-submit="updateComment()">
-    <comment-form></comment-form>
-</form>
+<h2 ng-if="notExists">That comment doesn`t exists</h2>
+   <div ng-if="!notExists">
+    <form ng-submit="updateComment()">
+        <comment-form></comment-form>
+    </form>
 
 
-<p class="text-center" ng-show="!contentReady"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
-<div ng-show="contentReady">
-    <comment-component></comment-component>
+    <p class="text-center" ng-show="!contentReady"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span>    </p>
+    <div ng-show="contentReady">
+        <comment-component></comment-component>
+    </div>  
 </div>

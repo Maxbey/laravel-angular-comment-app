@@ -1,10 +1,5 @@
 AppControllers.controller('CommentListCtrl', function($scope, $http, $location, CommentService)
-{
-    /*Q-4
-        Whether to validate the json server response for the void in the controller,
-        or check directly in the template using ng-show or ng-if directives ?
-    */
-    
+{   
     /*Querying comments data*/
     var refreshList = function(){
         $scope.contentReady = false;

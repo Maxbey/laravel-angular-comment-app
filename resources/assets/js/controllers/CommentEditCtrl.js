@@ -1,20 +1,23 @@
 AppControllers.controller('CommentEditCtrl', function($scope, $http, $location, $routeParams, CommentService)
-{
-    /*Q-3
-        To hide the content until the page is fully loaded
-        I use contentReady variable and the Directive ng-show, 
-        it is repeated in all controllers, 
-        is there a better way ?
-    */
-    
-    
+{    
     
     /*Querying comment data*/
     var loadComment = function(){
         
+        $scope.notExists = false;
         $scope.contentReady = false;
-        CommentService.get({id:$routeParams.id}, function(data){ 
-            $scope.comment = $scope.commentData = data; 
+        
+        CommentService.get({id:$routeParams.id}, function(data){
+            if(data.id)
+            {
+                $scope.comment = $scope.commentData = data;
+                $scope.contentReady = true;
+            }
+            else
+            {
+                $scope.notExists = true;
+                $scope.contentReady = true;
+            } 
             $scope.contentReady = true; 
         });
     };

@@ -84,7 +84,7 @@ class CommentsController extends Controller
     public function destroy($id)
     {
         Comment::destroy($id);
-
+        
         return response()->json([
             'success' => true
         ]);
