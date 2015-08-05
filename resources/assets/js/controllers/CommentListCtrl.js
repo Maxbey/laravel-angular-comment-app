@@ -1,9 +1,13 @@
-AppControllers.controller('CommentListCtrl', function($scope, $http, $location, CommentService)
+AppControllers.controller('CommentListCtrl', function($scope, $http, $location, CommentService, ErrorsService)
 {   
+    
     /*Querying comments data*/
     var refreshList = function(){
         $scope.contentReady = false;
-        $scope.comments = CommentService.query({}, function(){ $scope.contentReady = true; });
+        $scope.comments = CommentService.query({}, function(){ 
+            $scope.contentReady = true; 
+            $scope.errors = false;
+        });
     };
     
     /*Object for new comment*/
@@ -13,7 +17,9 @@ AppControllers.controller('CommentListCtrl', function($scope, $http, $location, 
     $scope.submitButton = 'Add Comment';
     $scope.submitComment = function()
     {
-        CommentService.save({},$scope.commentData, refreshList);
+        CommentService.save({},$scope.commentData, refreshList, function (responce){ 
+            $scope.errors = ErrorsService.handleValidationErrors(responce);
+        });
     };
     
     refreshList();

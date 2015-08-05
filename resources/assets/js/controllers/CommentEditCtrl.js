@@ -1,4 +1,4 @@
-AppControllers.controller('CommentEditCtrl', function($scope, $http, $location, $routeParams, CommentService)
+AppControllers.controller('CommentEditCtrl', function($scope, $http, $location, $routeParams, CommentService, ErrorsService)
 {    
     
     /*Querying comment data*/
@@ -25,7 +25,11 @@ AppControllers.controller('CommentEditCtrl', function($scope, $http, $location, 
     /* Form options */
     $scope.submitButton = 'Update Comment';
     $scope.updateComment = function (){
-        CommentService.update({id: $scope.comment.id}, $scope.comment, loadComment);
+        
+        CommentService.update({id: $scope.comment.id}, $scope.comment, loadComment, function (responce){ 
+            $scope.errors = ErrorsService.handleValidationErrors(responce);
+        });
+        
     };
     
     loadComment();

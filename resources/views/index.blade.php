@@ -24,10 +24,9 @@
     <div class="page-header">
         <h2><a href="/">Laravel and Angular Single Page Application</a></h2>
         <h4>Commenting System</h4>
-    </div>
+   </div>
 
     <div ng-view class="view-container"></div>
-    
 </div>
 </body> 
 </html>

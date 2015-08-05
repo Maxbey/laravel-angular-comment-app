@@ -1,8 +1,9 @@
+<errors-component></errors-component>
 <form comment-form ng-submit="submitComment()"></form>
 <p class="text-center" ng-show="!contentReady"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
 <div ng-show="contentReady">
     <h2 ng-if="!comments.length">No comments yet.</h2>
     <div class="item" ng-if="comments.length" ng-repeat="comment in comments">
         <comment-component></comment-component>
-    </div>  
+    </div>
 </div>
