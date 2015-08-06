@@ -2,7 +2,7 @@
 <h2 ng-if="notExists">That comment doesn`t exists</h2>
    <div ng-if="!notExists">
    <errors-component></errors-component>
-    <form ng-submit="updateComment()">
+    <form name="commentForm" ng-submit="updateComment()" novalidate>
         <comment-form></comment-form>
     </form>
 

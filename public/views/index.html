@@ -1,5 +1,5 @@
 <errors-component></errors-component>
-<form comment-form ng-submit="submitComment()"></form>
+<form name="commentForm" comment-form ng-submit="submitComment()" novalidate></form>
 <p class="text-center" ng-show="!contentReady"><span class="fa fa-meh-o fa-5x fa-spin">Loading...</span></p>
 <div ng-show="contentReady">
     <h2 ng-if="!comments.length">No comments yet.</h2>
