@@ -2,8 +2,7 @@
 A simple example Laravel and AngularJS Comments SPA
 ## Required
 
-- [Laravel] (http://laravel.com/)
-- [AngularJS] (https://angularjs.org/)
+- [Composer] (https://getcomposer.org/)
 - [Node.js (npm)] (https://nodejs.org/)
 - [Bower] (http://bower.io/)
 
